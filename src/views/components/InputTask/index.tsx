@@ -34,41 +34,40 @@ export const InputTask: React.FC<InputTaskProps> = ({
                     if(e.target.checked) {
                         onDone(id)
                         console.log('sdg');
-                        
-                    }
-                }}
-                />
-                {
-                    isEditMode ? 
-                    <input 
-                    value={value}
-                    onChange={(e) => {
-                        setValue(e.target.value)
+                        }
                     }}
-                    className={styles.inputTaskTitleEdit}
-                    /> : 
-                    <h3 className={ styles.inputTaskTitle }>{ title }</h3>
-                }
-                
-            </label>
-            <button
-                aria-label="Edit"
-                className={ styles.inputTaskEdit }
-                onClick={() => {
-                    onEdited(id, title)
-                     setIsEditMode(true)
-                }}
                 />
-            <button
-                aria-label="Edit"
-                className={ styles.inputTaskRemove }
-                onClick={() => {
-                    if(confirm('Are you sure?')) {
-                        onRemoved(id)
-                        console.log('fh');
-                    }
+            {
+                isEditMode ? (
+                <input 
+                value={value}
+                onChange={(e) => {
+                    setValue(e.target.value)
                 }}
-            />
+                className={styles.inputTaskTitleEdit}
+                /> ) : ( 
+                <h3 className={ styles.inputTaskTitle }>{ title }</h3>
+            )}
+            </label>
+            { isEditMode ? (
+                <button
+                    aria-label="Edit"
+                    className={ styles.inputTaskEdit }
+                    onClick={() => {
+                        onEdited(id, title)
+                        setIsEditMode(false)
+                    }}
+                /> ) : (
+                <button
+                    aria-label="Save"
+                    className={ styles.inputTaskRemove }
+                    onClick={() => {
+                        if(confirm('Are you sure?')) {
+                            onRemoved(id)
+                        }
+                    }}
+                /> )
+            }
         </div>
     )
 }
