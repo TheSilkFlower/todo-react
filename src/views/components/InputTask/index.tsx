@@ -51,15 +51,15 @@ export const InputTask: React.FC<InputTaskProps> = ({
             </label>
             { isEditMode ? (
                 <button
-                    aria-label="Edit"
-                    className={ styles.inputTaskEdit }
+                    aria-label="Save"
+                    className={ styles.inputTaskSave }
                     onClick={() => {
                         onEdited(id, title)
                         setIsEditMode(false)
                     }}
                 /> ) : (
                 <button
-                    aria-label="Save"
+                    aria-label="Remove"
                     className={ styles.inputTaskRemove }
                     onClick={() => {
                         if(confirm('Are you sure?')) {
@@ -68,6 +68,14 @@ export const InputTask: React.FC<InputTaskProps> = ({
                     }}
                 /> )
             }
+            <button
+                    aria-label="Edit"
+                    className={ styles.inputTaskEdit }
+                    onClick={() => {
+                        onEdited(id, title)
+                        setIsEditMode(true)
+                    }}
+                />
         </div>
     )
 }
