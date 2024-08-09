@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from './index.module.scss';
 
 interface InputTaskProps {
@@ -20,6 +20,13 @@ export const InputTask: React.FC<InputTaskProps> = ({
     const [checked, setChecked] = useState(false)
     const [isEditMode, setIsEditMode] = useState(false)
     const [value, setValue] = useState(title)
+    const editTitleInputRef = useRef<HTMLInputElement>(null)
+
+    useEffect(() => {
+        if(isEditMode) {
+            editTitleInputRef?.current?.focus()
+        }
+    }, [isEditMode])
 
     return (
         <div className={ styles.inputTask }>
@@ -33,7 +40,6 @@ export const InputTask: React.FC<InputTaskProps> = ({
                     setChecked(e.target.checked)
                     if(e.target.checked) {
                         onDone(id)
-                        console.log('sdg');
                         }
                     }}
                 />
@@ -41,8 +47,15 @@ export const InputTask: React.FC<InputTaskProps> = ({
                 isEditMode ? (
                 <input 
                 value={value}
+                ref={editTitleInputRef}
                 onChange={(e) => {
                     setValue(e.target.value)
+                }}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        onEdited(id, value)
+                        setIsEditMode(false)
+                    }
                 }}
                 className={styles.inputTaskTitleEdit}
                 /> ) : ( 
@@ -54,7 +67,7 @@ export const InputTask: React.FC<InputTaskProps> = ({
                     aria-label="Save"
                     className={ styles.inputTaskSave }
                     onClick={() => {
-                        onEdited(id, title)
+                        onEdited(id, value)
                         setIsEditMode(false)
                     }}
                 /> ) : (
