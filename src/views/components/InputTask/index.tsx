@@ -72,21 +72,22 @@ export const InputTask: React.FC<InputTaskProps> = ({
                     }}
                 /> ) : (
                 <button
+                    aria-label="Edit"
+                    className={ styles.inputTaskEdit }
+                    onClick={() => {
+                        onEdited(id, title)
+                        setIsEditMode(true)
+                    }}
+                />
+                 )
+            }
+                <button
                     aria-label="Remove"
                     className={ styles.inputTaskRemove }
                     onClick={() => {
                         if(confirm('Are you sure?')) {
                             onRemoved(id)
                         }
-                    }}
-                /> )
-            }
-            <button
-                    aria-label="Edit"
-                    className={ styles.inputTaskEdit }
-                    onClick={() => {
-                        onEdited(id, title)
-                        setIsEditMode(true)
                     }}
                 />
         </div>
