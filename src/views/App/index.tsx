@@ -9,12 +9,14 @@ export const App: React.FC = () => {
         tasks,
         createTask,
         updateTask,
-        removeTask
+        removeTask,
+        doneTask
     ] = useToDoStore(state => [
         state.tasks,
         state.createTask,
         state.updateTask,
-        state.removeTask
+        state.removeTask,
+        state.doneTask
     ]
     )
     
@@ -39,7 +41,7 @@ export const App: React.FC = () => {
                     key={task.id}
                     id={task.id}
                     title={task.title}
-                    onDone={removeTask}
+                    onDone={doneTask}
                     onEdited={updateTask}
                     onRemoved={removeTask}
                     />
