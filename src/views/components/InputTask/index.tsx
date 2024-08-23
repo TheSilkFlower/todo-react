@@ -39,7 +39,9 @@ export const InputTask: React.FC<InputTaskProps> = ({
                 onChange={(e) => {
                     setChecked(e.target.checked)
                     if(e.target.checked) {
-                        onDone(id)
+                        setTimeout(() => {
+                            onDone(id)
+                        }, 300)
                         }
                     }}
                 />
