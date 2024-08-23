@@ -12,6 +12,7 @@ interface ToDoStore {
     createTask: (title: string) => void;
     updateTask: (id: string, title: string) => void;
     removeTask: (id: string) => void;
+    doneTask: (id: string) => void;
 }
 
 export const useToDoStore = create<ToDoStore>((set, get) => ({
@@ -49,6 +50,12 @@ export const useToDoStore = create<ToDoStore>((set, get) => ({
         })
     },
     removeTask: (id: string) => {
+        const { tasks } = get();
+        set({
+            tasks: tasks.filter(task => task.id !== id)
+        })
+    },
+    doneTask: (id: string) => {
         const { tasks } = get();
         set({
             tasks: tasks.filter(task => task.id !== id)
