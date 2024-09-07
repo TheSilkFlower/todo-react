@@ -49,6 +49,8 @@ export const InputTask: React.FC<InputTaskProps> = ({
                 />
                     ) : ( <input
                         type="checkbox"
+                        disabled={isEditMode}
+                        className= {styles.inputTaskChecked}
                         onChange={(e) => {
                             setChecked(e.target.checked)
                         }
@@ -85,7 +87,8 @@ export const InputTask: React.FC<InputTaskProps> = ({
                 /> ) : (
                 <button
                     aria-label="Edit"
-                    className={ styles.inputTaskEdit }
+                    disabled={ checked ? true : false }
+                    className={ checked ? styles.inputTaskEditDisabled : styles.inputTaskEdit}
                     onClick={() => {
                         onEdited(id, title)
                         setIsEditMode(true)
