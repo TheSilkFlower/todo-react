@@ -37,7 +37,7 @@ export const InputTask: React.FC<InputTaskProps> = ({
                 type="checkbox"
                 checked={checked}
                 disabled={isEditMode}
-                className={ styles.inputTaskChecked }
+                className= {styles.inputTaskChecked}
                 onChange={(e) => {
                     setChecked(e.target.checked)
                     if(e.target.checked) {
@@ -69,9 +69,9 @@ export const InputTask: React.FC<InputTaskProps> = ({
                         setIsEditMode(false)
                     }
                 }}
-                className={styles.inputTaskTitleEdit}
+                className={ styles.inputTaskTitle }
                 /> ) : ( 
-                <h3 className={ styles.inputTaskTitle }>{ title }</h3>
+                <h3 className={ checked ? styles.inputTaskTitleUnchecked : styles.inputTaskTitle }>{ title }</h3>
             )}
             </label>
             { isEditMode ? (
