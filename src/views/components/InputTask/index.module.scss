@@ -36,7 +36,7 @@
         background: none;
         box-shadow: 0 4px 0 -3px #7B7B7B;
     }
-    &Edit, &Remove, &Save {
+    &EditDisabled , &Edit, &Remove, &Save {
         height: 25px;
         display: block;
         border: none;
@@ -49,7 +49,14 @@
             opacity: 1;
         }
     }
-    &Edit {
+    &EditDisabled {
+        opacity: .2;
+        cursor:not-allowed;
+        &:hover {
+            opacity: .2;
+        }
+    }
+    &Edit, &EditDisabled  {
         background-image: url('./images/edit.svg');
     }
     &Remove {
