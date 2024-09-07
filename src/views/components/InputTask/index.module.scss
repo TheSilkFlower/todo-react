@@ -25,6 +25,9 @@
         padding: 5px;
         line-height: 1.2;
     }
+    &TitleUnchecked {
+        text-decoration: line-through;
+    }
     &TitleEdit {
         font: 1rem/1em 'Roboto', sans-serif;
         padding: 5px;
