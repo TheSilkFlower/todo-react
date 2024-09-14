@@ -30,7 +30,8 @@ export const InputTask: React.FC<InputTaskProps> = ({
 
     return (
         <div className={ styles.inputTask }>
-            <label className={ styles.inputTaskLabel }>
+            <div className={ styles.inputTaskWrapper }>
+               <label className={ styles.inputTaskLabel }>
                 {
                     isEditMode ? (
                         <input
@@ -104,7 +105,9 @@ export const InputTask: React.FC<InputTaskProps> = ({
                             onRemoved(id)
                         }
                     }}
-                />
+                /> 
+            </div>
+            <div className={ styles.inputTaskInner }></div>
         </div>
     )
 }
