@@ -17,6 +17,7 @@ export const InputTask: React.FC<InputTaskProps> = ({
     onRemoved
 }) => {
 
+    const [theme, setTheme] = useState('')
     const [checked, setChecked] = useState(false)
     const [isEditMode, setIsEditMode] = useState(false)
     const [value, setValue] = useState(title)
