@@ -53,5 +53,5 @@ export const useToDoStore = create<ToDoStore>(persist((set, get) => ({
     }
 }),
 {
-    name: 'todos',
+    name: 'tasks',
   },))
