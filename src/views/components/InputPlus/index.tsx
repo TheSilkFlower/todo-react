@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import styles from './index.module.scss';
-import { Button, Tooltip } from "@mui/material";
+import { Button, TextField, Tooltip } from "@mui/material";
 import { Add } from "@mui/icons-material";
 
 interface InputPlusProps {
@@ -17,9 +17,10 @@ export const InputPlus: React.FC<InputPlusProps> = ({
     }, [inputValue])
     return (
         <div className={ styles.inputPlus }>
-            <input
-            type="text"
-            className={ styles.inputPlusValue }
+            <TextField 
+            id="outlined-basic" 
+            label="Type here" 
+            variant="outlined" 
             value={inputValue}
             onChange={(e) => {
                 setInputValue(e.target.value)
@@ -28,20 +29,13 @@ export const InputPlus: React.FC<InputPlusProps> = ({
                 if(e.key === 'Enter') {
                     addTask()
                 }
-            }}
-            placeholder="Type here..."
-            />
+            }} >
+            </TextField>
             <Tooltip title="Add" placement="right">
                 <Button variant={'contained'} sx={{background: '#4bd2b7'}} size={'medium'} onClick={addTask}>
                 <Add/>
             </Button>
             </Tooltip>
-            
-            {/* <button
-            onClick={addTask}
-            aria-label="Add"
-            className={ styles.inputPlusButton }
-            /> */}
         </div>
     )
 }
