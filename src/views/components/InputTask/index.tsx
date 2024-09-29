@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from './index.module.scss';
+import { IconButton } from "@mui/material";
+import { Done } from "@mui/icons-material";
 
 interface InputTaskProps {
     id: string;
@@ -78,14 +80,23 @@ export const InputTask: React.FC<InputTaskProps> = ({
             )}
             </label>
             { isEditMode ? (
-                <button
-                    aria-label="Save"
-                    className={ styles.inputTaskSave }
-                    onClick={() => {
-                        onEdited(id, value)
-                        setIsEditMode(false)
-                    }}
-                /> ) : (
+                <IconButton 
+                sx={{color: '#5985E1'}} 
+                onClick={() => {
+                    onEdited(id, value)
+                    setIsEditMode(false)
+                }}>
+                    <Done/>
+                </IconButton>
+                // <button
+                //     aria-label="Save"
+                //     className={ styles.inputTaskSave }
+                //     onClick={() => {
+                //         onEdited(id, value)
+                //         setIsEditMode(false)
+                //     }}
+                // /> 
+                ) : (
                 <button
                     aria-label="Edit"
                     disabled={ checked ? true : false }
