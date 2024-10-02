@@ -54,4 +54,5 @@ export const useToDoStore = create<ToDoStore>(persist((set, get) => ({
 }),
 {
     name: 'tasks',
+    getStorage: () => sessionStorage
   },))
