@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from './index.module.scss';
-import { IconButton } from "@mui/material";
-import { Done } from "@mui/icons-material";
+import { IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from "@mui/material";
+import { Done, Delete } from "@mui/icons-material";
 
 interface InputTaskProps {
     id: string;
@@ -22,6 +22,7 @@ export const InputTask: React.FC<InputTaskProps> = ({
     const [checked, setChecked] = useState(false)
     const [isEditMode, setIsEditMode] = useState(false)
     const [value, setValue] = useState(title)
+    const [open, setOpen] = useState(false)
     const editTitleInputRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
@@ -29,6 +30,13 @@ export const InputTask: React.FC<InputTaskProps> = ({
             editTitleInputRef?.current?.focus()
         }
     }, [isEditMode])
+
+    const handleOpen = () => {
+        setOpen(true)
+    }
+    const handleClose = () => {
+        setOpen(false)
+    }
 
     return (
         <div className={ styles.inputTask }>
@@ -108,15 +116,24 @@ export const InputTask: React.FC<InputTaskProps> = ({
                 />
                  )
             }
-                <button
-                    aria-label="Remove"
-                    className={ styles.inputTaskRemove }
-                    onClick={() => {
-                        if(confirm('Are you sure?')) {
-                            onRemoved(id)
-                        }
-                    }}
-                /> 
+                                <IconButton sx={{color: "#5985E1"}} onClick={handleOpen}> 
+                                    <Delete></Delete>
+                                </IconButton>
+                                    <Dialog open={open} onClose={handleClose}>
+                                        <DialogTitle>Данное действие удалит заметку</DialogTitle>
+                                        <DialogContent>
+                                            <DialogContentText>
+                                                Хотите удалить?
+                                            </DialogContentText>
+                                        </DialogContent>
+                                        <DialogActions>
+                                            <Button onClick={() => {
+                                                handleClose()
+                                                onRemoved(id)
+                                            }}>Да</Button>
+                                            <Button onClick={handleClose}>Нет</Button>
+                                        </DialogActions>
+                                    </Dialog>
             </div>
             <div className={ styles.inputTaskInner }></div>
         </div>
