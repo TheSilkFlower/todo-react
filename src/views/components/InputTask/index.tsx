@@ -89,7 +89,7 @@ export const InputTask: React.FC<InputTaskProps> = ({
             </label>
             { isEditMode ? (
                 <IconButton 
-                sx={{color: '#5985E1'}} 
+                sx={{color: '#7CA7D8'}} 
                 onClick={() => {
                     onEdited(id, value)
                     setIsEditMode(false)
@@ -116,7 +116,7 @@ export const InputTask: React.FC<InputTaskProps> = ({
                 />
                  )
             }
-                                <IconButton sx={{color: "#5985E1"}} onClick={handleOpen}> 
+                                <IconButton sx={{color: "#7CA7D8"}} onClick={handleOpen}> 
                                     <Delete></Delete>
                                 </IconButton>
                                     <Dialog open={open} onClose={handleClose}>

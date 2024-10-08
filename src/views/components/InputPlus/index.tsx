@@ -31,8 +31,8 @@ export const InputPlus: React.FC<InputPlusProps> = ({
                 }
             }} >
             </TextField>
-            <Tooltip title="Add" placement="right">
-                <Button variant={'contained'} sx={{background: '#4bd2b7'}} size={'medium'} onClick={addTask}>
+            <Tooltip title="Добавить" placement="right">
+                <Button variant={'contained'} sx={{background: '#7CA7D8'}} size={'medium'} onClick={addTask}>
                 <Add/>
             </Button>
             </Tooltip>
