@@ -96,14 +96,6 @@ export const InputTask: React.FC<InputTaskProps> = ({
                 }}>
                     <Done/>
                 </IconButton>
-                // <button
-                //     aria-label="Save"
-                //     className={ styles.inputTaskSave }
-                //     onClick={() => {
-                //         onEdited(id, value)
-                //         setIsEditMode(false)
-                //     }}
-                // /> 
                 ) : (
                 <button
                     aria-label="Edit"
