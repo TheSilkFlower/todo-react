@@ -34,7 +34,7 @@ export const App: React.FC = () => {
             </section>
             <section className={styles.articleSection}>
                 {(!tasks.length && (
-                    <p className={styles.articleText}>There is no one task</p>
+                    <p className={styles.articleText}>Нет ни одной заметки</p>
                 ))}
                 {tasks.map(task => (
                     <InputTask
