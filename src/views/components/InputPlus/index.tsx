@@ -19,7 +19,7 @@ export const InputPlus: React.FC<InputPlusProps> = ({
         <div className={ styles.inputPlus }>
             <TextField 
             id="outlined-basic" 
-            label="Type here" 
+            label="Введите текст" 
             variant="outlined" 
             value={inputValue}
             onChange={(e) => {
