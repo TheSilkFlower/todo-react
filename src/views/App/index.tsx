@@ -3,6 +3,7 @@ import styles from './index.module.scss';
 import { useToDoStore } from "../../data/stores/useToDoStore";
 import { InputPlus } from "../components/InputPlus";
 import { InputTask } from "../components/InputTask";
+import ParticleBg from "../components/Particles/particles";
 
 export const App: React.FC = () => {
     const [
@@ -20,9 +21,10 @@ export const App: React.FC = () => {
     ]
     )
     
-    return (
+    return <>
+        <ParticleBg />
         <article className={styles.article}>
-            <h1 className={styles.articleTitle}>To Do App</h1>
+            <h1 className={styles.articleTitle}>Для записей</h1>
             <section className={styles.articleSection}>
                 <InputPlus 
                     onAdd = {(title) => {
@@ -48,5 +50,5 @@ export const App: React.FC = () => {
                 ))}
             </section>
         </article>
-    )
+    </>
 }
