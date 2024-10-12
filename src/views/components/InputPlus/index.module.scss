@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 60px;
     margin-bottom: 15px;
+    gap: 5px;
         &Value {
             padding-left: 5px;
             border: 1px solid #B1B1B1;
@@ -14,17 +15,10 @@
                 padding-left: 5px;
             }
         }
-
         &Button {
-            background: rgb(125, 171, 180) url('../images/plus.svg') no-repeat center center;
-            margin-left: 2px;
-            box-shadow: 0 0 5px black;
-            border-radius: 3px;
-            border: none;
-            cursor: pointer;
             transition: .2s;
             &:hover {
-                background: rgb(188, 229, 202) url('../images/plus.svg') no-repeat center center;
+                background: #769fc8;
             }
         }
 }
