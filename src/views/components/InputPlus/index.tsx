@@ -32,7 +32,7 @@ export const InputPlus: React.FC<InputPlusProps> = ({
             }} >
             </TextField>
             <Tooltip title="Добавить" placement="right">
-                <Button variant={'contained'} sx={{background: '#7CA7D8'}} size={'medium'} onClick={addTask}>
+                <Button variant={'contained'} className={ styles.inputPlusButton } sx={{background: "transparent", boxShadow: "0 0 2px black"}} size={'medium'} onClick={addTask}>
                 <Add/>
             </Button>
             </Tooltip>
