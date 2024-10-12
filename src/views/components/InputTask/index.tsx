@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from './index.module.scss';
 import { IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from "@mui/material";
-import { Done, Delete } from "@mui/icons-material";
+import { Done, Delete, Mode } from "@mui/icons-material";
 
 interface InputTaskProps {
     id: string;
@@ -89,7 +89,7 @@ export const InputTask: React.FC<InputTaskProps> = ({
             </label>
             { isEditMode ? (
                 <IconButton 
-                sx={{color: '#7CA7D8'}} 
+                sx={{color: '#c7d4dd'}} 
                 onClick={() => {
                     onEdited(id, value)
                     setIsEditMode(false)
@@ -97,18 +97,26 @@ export const InputTask: React.FC<InputTaskProps> = ({
                     <Done/>
                 </IconButton>
                 ) : (
-                <button
-                    aria-label="Edit"
-                    disabled={ checked ? true : false }
-                    className={ checked ? styles.inputTaskEditDisabled : styles.inputTaskEdit}
+                    <IconButton
+                    sx={{color: '#c7d4dd'}} 
                     onClick={() => {
-                        onEdited(id, title)
-                        setIsEditMode(true)
-                    }}
-                />
+                    onEdited(id, title)
+                    setIsEditMode(true)
+                }}>
+                        <Mode />
+                    </IconButton>
+                // <button
+                //     aria-label="Edit"
+                //     disabled={ checked ? true : false }
+                //     className={ checked ? styles.inputTaskEditDisabled : styles.inputTaskEdit}
+                //     onClick={() => {
+                //         onEdited(id, title)
+                //         setIsEditMode(true)
+                //     }}
+                // />
                  )
             }
-                                <IconButton sx={{color: "#7CA7D8"}} onClick={handleOpen}> 
+                                <IconButton sx={{color: "#c7d4dd"}} onClick={handleOpen}> 
                                     <Delete></Delete>
                                 </IconButton>
                                     <Dialog open={open} onClose={handleClose}>
