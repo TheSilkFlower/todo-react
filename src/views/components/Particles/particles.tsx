@@ -59,13 +59,6 @@ const ParticleBg = () => {
                     color: {
                         value: "#ffffff",
                     },
-                    links: {
-                        color: "#ffffff",
-                        distance: 150,
-                        enable: true,
-                        opacity: 0.5,
-                        width: 1,
-                    },
                     move: {
                         direction: "none",
                         enable: true,
@@ -80,7 +73,7 @@ const ParticleBg = () => {
                             enable: true,
                             area: 2000,
                         },
-                        value: 150,
+                        value: 170,
                     },
                     opacity: {
                         value: 0.7,
