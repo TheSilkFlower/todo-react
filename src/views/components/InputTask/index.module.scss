@@ -1,6 +1,7 @@
 .inputTask {
     margin-bottom: 15px;
-    background: rgb(199, 212, 221);
+    background: transparent;
+    box-shadow: 0 0 2px rgb(0, 0, 0);
     border-radius: 5px;
     padding-right: 15px;
     &Wrapper {
