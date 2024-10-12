@@ -4,6 +4,7 @@ import { useToDoStore } from "../../data/stores/useToDoStore";
 import { InputPlus } from "../components/InputPlus";
 import { InputTask } from "../components/InputTask";
 import ParticleBg from "../components/Particles/particles";
+import AppBlock from "../components/ApplicationBlock";
 
 export const App: React.FC = () => {
     const [
@@ -50,5 +51,6 @@ export const App: React.FC = () => {
                 ))}
             </section>
         </article>
+        <AppBlock />
     </>
 }
