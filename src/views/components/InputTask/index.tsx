@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from './index.module.scss';
-import { IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from "@mui/material";
+import { IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Checkbox } from "@mui/material";
 import { Done, Delete, Mode } from "@mui/icons-material";
+import { LightTooltip } from "../LightTooltip";
+import { DateTodo } from "../DateTodo";
 
 interface InputTaskProps {
     id: string;
@@ -14,7 +16,7 @@ interface InputTaskProps {
 export const InputTask: React.FC<InputTaskProps> = ({
     id,
     title,
-    onDone,
+    // onDone,
     onEdited,
     onRemoved
 }) => {
@@ -38,35 +40,23 @@ export const InputTask: React.FC<InputTaskProps> = ({
         setOpen(false)
     }
 
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setChecked(event.target.checked);
+      };
+
     return (
         <div className={ styles.inputTask }>
             <div className={ styles.inputTaskWrapper }>
                <label className={ styles.inputTaskLabel }>
                 {
                     isEditMode ? (
-                        <input
-                type="checkbox"
-                checked={checked}
-                disabled={isEditMode}
-                className= {styles.inputTaskChecked}
-                onChange={(e) => {
-                    setChecked(e.target.checked)
-                    if(e.target.checked) {
-                        setTimeout(() => {
-                            onDone(id)
-                        }, 300)
-                        }
-                    }}
-                />
-                    ) : ( <input
-                        type="checkbox"
-                        disabled={isEditMode}
-                        className= {styles.inputTaskChecked}
-                        onChange={(e) => {
-                            setChecked(e.target.checked)
-                        }
-                    }
-                    />)
+                            <Checkbox disabled={isEditMode} 
+                            onChange={handleChange}></Checkbox>
+                    ) : (  
+                        <Checkbox disabled={isEditMode}
+                        onChange={handleChange}
+                        />
+                    )
                 }
             {
                 isEditMode ? (
@@ -88,7 +78,8 @@ export const InputTask: React.FC<InputTaskProps> = ({
             )}
             </label>
             { isEditMode ? (
-                <IconButton 
+                <LightTooltip title="Сохранить" placement="bottom">
+                    <IconButton className={ styles.inputTaskSave }
                 sx={{color: '#c7d4dd'}} 
                 onClick={() => {
                     onEdited(id, value)
@@ -96,8 +87,10 @@ export const InputTask: React.FC<InputTaskProps> = ({
                 }}>
                     <Done/>
                 </IconButton>
+                </LightTooltip>
                 ) : (
-                    <IconButton
+                    <LightTooltip title="Редактировать" placement="bottom">
+                        <IconButton className={ styles.inputTaskEdit }
                     sx={{color: '#c7d4dd'}} 
                     onClick={() => {
                     onEdited(id, title)
@@ -105,37 +98,33 @@ export const InputTask: React.FC<InputTaskProps> = ({
                 }}>
                         <Mode />
                     </IconButton>
-                // <button
-                //     aria-label="Edit"
-                //     disabled={ checked ? true : false }
-                //     className={ checked ? styles.inputTaskEditDisabled : styles.inputTaskEdit}
-                //     onClick={() => {
-                //         onEdited(id, title)
-                //         setIsEditMode(true)
-                //     }}
-                // />
+                    </LightTooltip>
+                    
                  )
             }
-                                <IconButton sx={{color: "#c7d4dd"}} onClick={handleOpen}> 
-                                    <Delete></Delete>
-                                </IconButton>
-                                    <Dialog open={open} onClose={handleClose}>
-                                        <DialogTitle>Данное действие удалит заметку</DialogTitle>
-                                        <DialogContent>
-                                            <DialogContentText>
-                                                Хотите удалить?
-                                            </DialogContentText>
-                                        </DialogContent>
-                                        <DialogActions>
-                                            <Button onClick={() => {
-                                                handleClose()
-                                                onRemoved(id)
-                                            }}>Да</Button>
-                                            <Button onClick={handleClose}>Нет</Button>
-                                        </DialogActions>
-                                    </Dialog>
+                <LightTooltip title="Удалить" placement="bottom">
+                    <IconButton className={ styles.inputTaskRemove } sx={{color: "#c7d4dd"}} onClick={handleOpen}> 
+                        <Delete></Delete>
+                    </IconButton>
+                </LightTooltip>
+                <Dialog open={open} onClose={handleClose}>
+                    <DialogTitle>Данное действие удалит заметку</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            Хотите удалить?
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => {
+                            handleClose()
+                            onRemoved(id)
+                        }}>Да</Button>
+                        <Button onClick={handleClose}>Нет</Button>
+                    </DialogActions>
+                </Dialog>
+            
             </div>
-            <div className={ styles.inputTaskInner }></div>
+            <DateTodo />
         </div>
     )
 }
