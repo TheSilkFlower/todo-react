@@ -14,6 +14,14 @@
         width: 18px;
         height: 18px;
         cursor: pointer;
+        color: #dbefe9;
+        box-shadow: 0 0 3px black;
+    }
+    &Unchecked {
+        color: transparent;
+        box-shadow: 0 0 3px black;
+        opacity: .4;
+        cursor: default;
     }
     &Label {
         font-size: 20px;
@@ -39,20 +47,6 @@
         background: none;
         box-shadow: 0 4px 0 -3px #7B7B7B;
     }
-    &EditDisabled , &Edit, &Remove, &Save {
-        width: 25px;
-        height: 25px;
-        display: block;
-        border: none;
-        background: none no-repeat center center;
-        cursor: pointer;
-        padding: 0;
-        opacity: .6;
-        transition: .3s;
-        &:hover {
-            opacity: 1;
-        }
-    }
     &EditDisabled {
         opacity: .2;
         cursor:not-allowed;
@@ -60,13 +54,10 @@
             opacity: .2;
         }
     }
-    &Edit, &EditDisabled  {
-        background-image: url('./images/edit.svg');
-    }
-    &Remove {
-        background-image: url('./images/trash.svg');
-    }
-    &Save {
-        background-image: url('./images/check.svg');
+    &Edit, &Remove, &Save {
+        transition: .6s;
+        &:hover {
+            color: #dbefe9;
+        }
     }
 }
