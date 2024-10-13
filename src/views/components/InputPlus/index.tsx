@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from "react";
 import styles from './index.module.scss';
-import { Button, TextField, Tooltip } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { Add } from "@mui/icons-material";
+import { LightTooltip } from "../LightTooltip";
 
 interface InputPlusProps {
     onAdd: (title: string) => void;
@@ -31,11 +32,11 @@ export const InputPlus: React.FC<InputPlusProps> = ({
                 }
             }} >
             </TextField>
-            <Tooltip title="Добавить" placement="right">
+            <LightTooltip title="Добавить" placement="right">
                 <Button variant={'contained'} className={ styles.inputPlusButton } sx={{background: "transparent", boxShadow: "0 0 2px black"}} size={'medium'} onClick={addTask}>
                 <Add/>
             </Button>
-            </Tooltip>
+            </LightTooltip>
         </div>
     )
 }
