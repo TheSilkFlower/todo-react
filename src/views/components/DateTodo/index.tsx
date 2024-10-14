@@ -5,7 +5,7 @@ function getTime() {
     let hour: number = new Date().getHours()
     let minutes: number = new Date().getMinutes()
 
-    return `${day}/${month}/${year} ${hour}:${minutes}`
+    return `${day}/${month}/${year} ${hour < 10 ? '0' + hour : hour}:${minutes < 10 ? '0' + minutes : minutes}`
 }
 
 export function DateTodo() {
