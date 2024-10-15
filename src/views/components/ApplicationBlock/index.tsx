@@ -1,16 +1,15 @@
 import styles from "./index.module.scss";
-import { Link } from "@mui/material";
+import { Tool } from "../Tool";
 
 export default function AppBlock() {
     return (
         <div className={styles.mainBlock}>
             <div className={styles.titleBlock}>Создано при помощи:</div>
-            <Link href="https://mui.com/material-ui" target="_blank" underline="none" className={styles.blockLink} sx={{color: "#292d34"}}>@materialUi</Link>
-            <Link href="https://particles.js.org/" target="_blank" underline="none" className={styles.blockLink} sx={{color: "#292d34"}}>@tsParticles</Link>
-            <Link href="https://www.typescriptlang.org/" target="_blank" underline="none" className={styles.blockLink} sx={{color: "#292d34"}}>Typescript</Link>
-            <Link href="https://react.dev/" target="_blank" underline="none" className={styles.blockLink} sx={{color: "#292d34"}}>React</Link>
-            <Link href="https://vite.dev/" target="_blank" underline="none" className={styles.blockLink} sx={{color: "#292d34"}}>Vite</Link>
-
+            <Tool href="https://mui.com/material-ui" tool="@materialUi"/>
+            <Tool href="https://particles.js.org/" tool="@tsParticles"/>
+            <Tool href="https://www.typescriptlang.org/" tool="Typescript"/>
+            <Tool href="https://react.dev/" tool="React"/>
+            <Tool href="https://vite.dev/" tool="Vite"/>
         </div>
         
     )
