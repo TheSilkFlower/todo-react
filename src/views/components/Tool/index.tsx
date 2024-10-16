@@ -6,7 +6,7 @@ interface ILink {
     href: string,
     target?: string,
     underline?: LinkOwnProps,
-    className?: string | undefined,
+    className?: string,
     sx?: LinkOwnProps,
     tool: string
 }
