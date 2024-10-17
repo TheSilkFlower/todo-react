@@ -4,6 +4,7 @@ import { IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, Dial
 import { Done, Delete, Mode } from "@mui/icons-material";
 import { LightTooltip } from "../LightTooltip";
 import { DateTodo } from "../DateTodo";
+import { lightBlue } from "@mui/material/colors";
 
 interface InputTaskProps {
     id: string;
@@ -55,7 +56,11 @@ export const InputTask: React.FC<InputTaskProps> = ({
                     ) : (  
                         <Checkbox disabled={isEditMode}
                         onChange={handleChange}
-                        />
+                        sx={{
+                            color: lightBlue[50],
+                            '&.Mui-checked': {
+                              color: lightBlue[50],
+                            }}}/>
                     )
                 }
             {
