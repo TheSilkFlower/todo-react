@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react'
 import styles from './index.module.scss'
+import { InputTask } from '../InputTask'
 
 function getTime() {
     let day: number = new Date().getDate()
@@ -10,10 +12,15 @@ function getTime() {
     return `${day}/${month}/${year.toString().slice(2)} ${hour < 10 ? '0' + hour : hour}:${minutes < 10 ? '0' + minutes : minutes}`
 }
 
+
 export function DateTodo() {
+    const [time, setTime] = useState('')
+    useEffect(() => {
+        setTime(getTime())
+    }, [InputTask])
     return (
         <div className={ styles.date }>
-            {getTime()}
+            {time}
         </div>
     )
 }
