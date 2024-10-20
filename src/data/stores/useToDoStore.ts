@@ -6,6 +6,7 @@ interface Task {
     id: string;
     title: string;
     createdAt: number;
+    time: any;
 }
 
 interface ToDoStore {
@@ -16,6 +17,17 @@ interface ToDoStore {
     doneTask: (id: string) => void;
 }
 
+export function getTime() {
+    let day: number = new Date().getDate()
+    let month: number = new Date().getMonth() + 1
+    let year: number = new Date().getFullYear()
+    let hour: number = new Date().getHours()
+    let minutes: number = new Date().getMinutes()
+
+    return `${day}/${month}/${year.toString().slice(2)} ${hour < 10 ? '0' + hour : hour}:${minutes < 10 ? '0' + minutes : minutes}`
+}
+
+
 export const useToDoStore = create<ToDoStore>(persist((set, get) => ({
     tasks: [],
     createTask: (title) => {
@@ -23,7 +35,8 @@ export const useToDoStore = create<ToDoStore>(persist((set, get) => ({
         const newTask = {
             id: generateId(),
             title,
-            createdAt: Date.now()
+            createdAt: Date.now(),
+            time: getTime()
         }
 
         set({
