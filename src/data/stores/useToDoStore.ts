@@ -6,7 +6,6 @@ interface Task {
     id: string;
     title: string;
     createdAt: number;
-    time: any;
 }
 
 interface ToDoStore {
@@ -35,8 +34,7 @@ export const useToDoStore = create<ToDoStore>(persist((set, get) => ({
         const newTask = {
             id: generateId(),
             title,
-            createdAt: Date.now(),
-            time: getTime()
+            createdAt: Date.now()
         }
 
         set({
