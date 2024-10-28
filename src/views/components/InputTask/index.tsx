@@ -12,7 +12,6 @@ interface InputTaskProps {
     time: string;
     onEdited: (id: string, title: string) => void;
     onRemoved: (id: string) => void;
-    showTime?: (id: string, time: string) => void;
 }
 
 export const InputTask: React.FC<InputTaskProps> = ({

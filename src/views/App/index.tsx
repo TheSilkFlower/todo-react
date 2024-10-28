@@ -11,14 +11,12 @@ export const App: React.FC = () => {
         tasks,
         createTask,
         updateTask,
-        removeTask,
-        showTaskTime
+        removeTask
     ] = useToDoStore(state => [
         state.tasks,
         state.createTask,
         state.updateTask,
-        state.removeTask,
-        state.showTaskTime
+        state.removeTask
     ]
     )
     
@@ -47,7 +45,6 @@ export const App: React.FC = () => {
                     time={task.time}
                     onEdited={updateTask}
                     onRemoved={removeTask}
-                    showTime={showTaskTime}
                     />
                 ))}
             </section>

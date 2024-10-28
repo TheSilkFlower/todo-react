@@ -14,7 +14,6 @@ interface ToDoStore {
     createTask: (title: string) => void;
     updateTask: (id: string, title: string) => void;
     removeTask: (id: string) => void;
-    showTaskTime: (id: string, time: string) => void;
 }
 
 export function getTime() {
@@ -56,15 +55,6 @@ export const useToDoStore = create<ToDoStore>(persist((set, get) => ({
         const { tasks } = get();
         set({
             tasks: tasks.filter(task => task.id !== id)
-        })
-    },
-    showTaskTime: (id: string, time: string) => {
-        const { tasks } = get();
-        set({
-            tasks: tasks.map(task => ({
-                ...task,
-                time: task.id === id ? time : task.time
-            }))
         })
     }
 }),
