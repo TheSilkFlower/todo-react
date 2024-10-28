@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react'
 import styles from './index.module.scss'
-import { InputTask } from '../InputTask'
-import { getTime } from '../../../data/stores/useToDoStore'
 
-export function DateTodo() {
-    const [time, setTime] = useState('')
-    useEffect(() => {
-        setTime(getTime())
-    }, [InputTask])
+interface Date {
+    time: string
+}
+
+export const DateTodo: React.FC<Date> = ({ time }) => {
     return (
         <div className={ styles.date }>
             {time}
