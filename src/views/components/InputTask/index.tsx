@@ -9,15 +9,16 @@ import { blueGrey } from "@mui/material/colors";
 interface InputTaskProps {
     id: string;
     title: string;
-    onDone: (id: string) => void;
+    time: string;
     onEdited: (id: string, title: string) => void;
     onRemoved: (id: string) => void;
+    showTime?: (id: string, time: string) => void;
 }
 
 export const InputTask: React.FC<InputTaskProps> = ({
     id,
     title,
-    // onDone,
+    time,
     onEdited,
     onRemoved
 }) => {
@@ -129,7 +130,7 @@ export const InputTask: React.FC<InputTaskProps> = ({
                 </Dialog>
             
             </div>
-            <DateTodo />
+            <DateTodo time={time}/>
         </div>
     )
 }
