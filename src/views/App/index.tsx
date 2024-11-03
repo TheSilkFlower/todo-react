@@ -5,7 +5,6 @@ import { InputPlus } from "../components/InputPlus";
 import { InputTask } from "../components/InputTask";
 import ParticleBg from "../components/Particles/particles";
 import AppBlock from "../components/ApplicationBlock";
-import { SwitchThemes } from "../components/SwitchThemes";
 
 export const App: React.FC = () => {
     const [
@@ -51,6 +50,5 @@ export const App: React.FC = () => {
             </section>
         </article>
         <AppBlock />
-        <SwitchThemes />
     </>
 }

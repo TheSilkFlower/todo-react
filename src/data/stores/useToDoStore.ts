@@ -16,7 +16,7 @@ interface ToDoStore {
     removeTask: (id: string) => void;
 }
 
-function getTime() {
+export function getTime() {
     let day: number = new Date().getDate()
     let month: number = new Date().getMonth() + 1
     let year: number = new Date().getFullYear()
