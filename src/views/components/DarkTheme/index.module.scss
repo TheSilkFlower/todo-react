@@ -1,0 +1,9 @@
+.buttonDark {
+    color: #35363f;
+    cursor: pointer;
+    opacity: .7;
+    transition: .5s;
+        &:hover {
+            opacity: 1;
+        }
+}
