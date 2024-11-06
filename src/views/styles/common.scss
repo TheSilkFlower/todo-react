@@ -10,3 +10,9 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+@media screen and (max-width: 1200px) {
+    body {
+        max-width: 320px;
+    }
+}
