@@ -19,3 +19,13 @@
         color: #292d34;
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .article {
+        max-width: 320px;
+        width: 80%;
+        padding: 0;
+        max-height: none;
+        height: 600px;
+        }
+    }
