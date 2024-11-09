@@ -50,7 +50,10 @@ export const App: React.FC = () => {
                 ))}
             </section>
         </article>
-        <AppBlock />
-        <SwitchThemes />
+        <div>
+            <AppBlock />
+            <SwitchThemes />
+        </div>
+        
     </>
 }
