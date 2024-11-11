@@ -12,8 +12,10 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
+    #root {
+        width: 60%
+    }
     body {
-        max-width: 320px;
         height: 100%;
     }
 }
