@@ -50,7 +50,7 @@ export const App: React.FC = () => {
                 ))}
             </section>
         </article>
-        <div>
+        <div className={ styles.blockWrapper }>
             <AppBlock />
             <SwitchThemes />
         </div>
