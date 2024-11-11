@@ -1,1 +1,1 @@
-.mainBlock{display:flex;justify-content:center;gap:10px}.titleBlock{color:#c7d4dd;font-size:15px;opacity:.8}
+.mainBlock{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}.titleBlock{color:#c7d4dd;font-size:15px;opacity:.8}
