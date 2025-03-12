@@ -1,5 +1,5 @@
 import create from "zustand";
-import { generateId } from "../helpers";
+import { generateId, getTime } from "../helpers";
 import { persist } from "zustand/middleware";
 
 interface Task {
@@ -14,16 +14,6 @@ interface ToDoStore {
     createTask: (title: string) => void;
     updateTask: (id: string, title: string) => void;
     removeTask: (id: string) => void;
-}
-
-export function getTime() {
-    let day: number = new Date().getDate()
-    let month: number = new Date().getMonth() + 1
-    let year: number = new Date().getFullYear()
-    let hour: number = new Date().getHours()
-    let minutes: number = new Date().getMinutes()
-
-    return `${day}/${month}/${year.toString().slice(2)} ${hour < 10 ? '0' + hour : hour}:${minutes < 10 ? '0' + minutes : minutes}`
 }
 
 export const useToDoStore = create<ToDoStore>(persist((set, get) => ({
