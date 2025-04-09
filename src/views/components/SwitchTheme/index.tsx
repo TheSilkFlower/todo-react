@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 export function SwitchTheme() {
     const [ theme, changeTheme ] = useToDoStore(state => [ state.theme, state.changeTheme ]);
     return (
-        <button onClick={ changeTheme }>
+        <button className={ styles.mainBtn } onClick={ changeTheme }>
             { theme ? <LightMode className={ styles.buttonLight }/> : <DarkMode className={ styles.buttonDark }/> }
         </button>
     )
