@@ -3,6 +3,8 @@ import styles from './index.module.scss';
 
 export function DarkTheme() {
     return (
-        <DarkMode className={ styles.buttonDark }/>
+        <button>
+            <DarkMode className={ styles.buttonDark }/>
+        </button>
     )
 }

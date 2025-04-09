@@ -3,6 +3,8 @@ import styles from './index.module.scss';
 
 export function LightTheme() {
     return (
-        <LightMode className={ styles.buttonLight }/>
+        <button>
+           <LightMode className={ styles.buttonLight }/> 
+        </button>
     )
 }
