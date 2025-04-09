@@ -2,6 +2,8 @@ import create from "zustand";
 import { generateId, getTime } from "../helpers";
 import { persist } from "zustand/middleware";
 
+type Theme = boolean;
+
 interface Task {
     id: string;
     title: string;
@@ -14,10 +16,13 @@ interface ToDoStore {
     createTask: (title: string) => void;
     updateTask: (id: string, title: string) => void;
     removeTask: (id: string) => void;
+    changeTheme: () => void;
+    theme: Theme;
 }
 
 export const useToDoStore = create<ToDoStore>(persist((set, get) => ({
     tasks: [],
+    theme: false,
     createTask: (title) => {
         const { tasks } = get();
         const newTask = {
@@ -45,6 +50,12 @@ export const useToDoStore = create<ToDoStore>(persist((set, get) => ({
         const { tasks } = get();
         set({
             tasks: tasks.filter(task => task.id !== id)
+        })
+    },
+    changeTheme: () => {
+        const { theme } = get();
+        set({
+            theme: !theme
         })
     }
 }),
