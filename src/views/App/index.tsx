@@ -23,9 +23,9 @@ export const App: React.FC = () => {
     
     return <>
         <ParticleBg />
-        <article className={styles.article}>
-            <h1 className={styles.articleTitle}>Для записей</h1>
-            <section className={styles.articleSection}>
+        <article className={ styles.article }>
+            <h1 className={ styles.articleTitle }>Для записей</h1>
+            <section className={ styles.articleSection }>
                 <InputPlus 
                     onAdd = {(title) => {
                         if(title) {
@@ -34,18 +34,18 @@ export const App: React.FC = () => {
                     }}
                 />
             </section>
-            <section className={styles.articleSection}>
+            <section className={ styles.articleSection }>
                 {(!tasks.length && (
-                    <p className={styles.articleText}>Нет ни одной заметки</p>
+                    <p className={ styles.articleText }>Нет ни одной заметки</p>
                 ))}
                 {tasks.map(task => (
                     <InputTask
-                    key={task.id}
-                    id={task.id}
-                    title={task.title}
-                    time={task.time}
-                    onEdited={updateTask}
-                    onRemoved={removeTask}
+                        key={task.id}
+                        id={task.id}
+                        title={task.title}
+                        time={task.time}
+                        onEdited={updateTask}
+                        onRemoved={removeTask}
                     />
                 ))}
             </section>
