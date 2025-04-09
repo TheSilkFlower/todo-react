@@ -5,21 +5,31 @@ import { InputPlus } from "../components/InputPlus";
 import { InputTask } from "../components/InputTask";
 import ParticleBg from "../components/Particles/particles";
 import AppBlock from "../components/ApplicationBlock";
-import { SwitchThemes } from "../components/SwitchThemes";
+import { LightTheme } from "../components/LightTheme";
+import { DarkTheme } from "../components/DarkTheme";
 
 export const App: React.FC = () => {
     const [
         tasks,
         createTask,
         updateTask,
-        removeTask
+        removeTask,
+        changeTheme,
+        theme
     ] = useToDoStore(state => [
         state.tasks,
         state.createTask,
         state.updateTask,
-        state.removeTask
+        state.removeTask,
+        state.changeTheme,
+        state.theme
     ]
     )
+
+
+    // function toggleTheme() {
+    //     changeTheme()
+    // };
     
     return <>
         <ParticleBg />
@@ -52,7 +62,7 @@ export const App: React.FC = () => {
         </article>
         <div className={ styles.blockWrapper }>
             <AppBlock />
-            <SwitchThemes />
+            { theme ? <LightTheme /> : <DarkTheme /> }
         </div>
         
     </>
