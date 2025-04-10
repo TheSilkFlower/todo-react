@@ -34,7 +34,7 @@ export const useThemeStore = create<ThemeStore>(persist((set, get) => ({
 }), {
         name: "theme",
         getStorage: () =>  sessionStorage
-} 
+    } 
 ))
 
 export const useToDoStore = create<ToDoStore>(persist((set, get) => ({
