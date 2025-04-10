@@ -24,6 +24,10 @@ body {
     justify-content: center;
 }
 
+.light {
+    background-image: linear-gradient(0deg, #2b5189, #5379b1, #8099be, #f4f7f7);
+}
+
 @media screen and (max-width: 1200px) {
     body {
         height: 100%;
