@@ -1,25 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from './index.module.scss';
-import { useToDoStore } from "../../data/stores/useToDoStore";
+import { useThemeStore, useToDoStore } from "../../data/stores/useToDoStore";
 import { InputPlus } from "../components/InputPlus";
 import { InputTask } from "../components/InputTask";
+import { SwitchTheme } from "../components/SwitchTheme";
 import ParticleBg from "../components/Particles/particles";
 import AppBlock from "../components/ApplicationBlock";
-import { SwitchTheme } from "../components/SwitchTheme";
 
 export const App: React.FC = () => {
-    const [
-        tasks,
-        createTask,
-        updateTask,
-        removeTask,
-    ] = useToDoStore(state => [
-        state.tasks,
-        state.createTask,
-        state.updateTask,
-        state.removeTask,
-    ]
-    )
+    const [ tasks, createTask, updateTask, removeTask ] = useToDoStore(state => [ state.tasks, state.createTask, state.updateTask, state.removeTask ])
+    const [ theme ] = useThemeStore(state => [ state.theme ])
+
+    function updateBodyClass(th: boolean) {
+        if(th) {
+            document.body.style.backgroundImage = 'linear-gradient(0deg, #06152b, #2b5189, #5379b1, #8099be)'
+        } else {
+            document.body.style.backgroundImage = 'linear-gradient(0deg, #6182b3,rgb(126, 163, 218), #bbcfec, #ffffff)'
+
+        }
+    }
+
+    useEffect(() => {
+        updateBodyClass(theme)
+    }, [theme])
 
     return <>
         <ParticleBg />
