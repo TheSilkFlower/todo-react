@@ -15,7 +15,7 @@ export const App: React.FC = () => {
         if(th) {
             document.body.style.backgroundImage = 'linear-gradient(0deg, #06152b, #2b5189, #5379b1, #8099be)'
         } else {
-            document.body.style.backgroundImage = 'linear-gradient(0deg, #6182b3,rgb(126, 163, 218), #bbcfec, #ffffff)'
+            document.body.style.backgroundImage = 'linear-gradient(0deg, #6182b3, #7ea3da, #bbcfec, #ffffff)'
 
         }
     }
