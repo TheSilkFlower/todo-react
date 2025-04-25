@@ -3,6 +3,7 @@ import styles from './index.module.scss';
 import { useThemeStore, useToDoStore } from "../../data/stores/useToDoStore";
 import { InputPlus } from "../components/InputPlus";
 import { InputTask } from "../components/InputTask";
+import { CursorHighlight } from "../components/CursorHighlight/CursorHighlight";
 import { SwitchTheme } from "../components/SwitchTheme";
 import ParticleBg from "../components/Particles/particles";
 import AppBlock from "../components/ApplicationBlock";
@@ -25,6 +26,7 @@ export const App: React.FC = () => {
     }, [theme])
 
     return <>
+    <CursorHighlight />
         <ParticleBg />
         <article className={ styles.article }>
             <h1 className={ styles.articleTitle }>Для записей</h1>
