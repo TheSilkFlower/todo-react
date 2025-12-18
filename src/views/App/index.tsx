@@ -26,7 +26,6 @@ export const App: React.FC = () => {
     }, [theme])
 
     return <>
-    <CursorHighlight />
         <ParticleBg />
         <article className={ styles.article }>
             <h1 className={ styles.articleTitle }>Для записей</h1>
