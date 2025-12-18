@@ -3,7 +3,6 @@ import styles from './index.module.scss';
 import { useThemeStore, useToDoStore } from "../../data/stores/useToDoStore";
 import { InputPlus } from "../components/InputPlus";
 import { InputTask } from "../components/InputTask";
-import { CursorHighlight } from "../components/CursorHighlight/CursorHighlight";
 import { SwitchTheme } from "../components/SwitchTheme";
 import ParticleBg from "../components/Particles/particles";
 import AppBlock from "../components/ApplicationBlock";
