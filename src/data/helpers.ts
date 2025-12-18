@@ -5,11 +5,11 @@ export const generateId: GenerateId = () => (
 
 type GetTime = () => string;
 export const getTime: GetTime = () => {
-    let day: number = new Date().getDate()
-    let month: number = new Date().getMonth() + 1
-    let year: number = new Date().getFullYear()
-    let hour: number = new Date().getHours()
-    let minutes: number = new Date().getMinutes()
+    const day: number = new Date().getDate()
+    const month: number = new Date().getMonth() + 1
+    const year: number = new Date().getFullYear()
+    const hour: number = new Date().getHours()
+    const minutes: number = new Date().getMinutes()
 
     return `${day}/${month}/${year.toString().slice(2)} ${hour < 10 ? '0' + hour : hour}:${minutes < 10 ? '0' + minutes : minutes}`
 }
